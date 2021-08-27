@@ -50,4 +50,4 @@ int main(int argc, char* argv[])
     return 0;
 }
 
-#endif // FILE_TESTING
+#endif // TESTING
