@@ -1,6 +1,6 @@
 /**
  * @file
- * @brief Test functions
+ * @brief Provides Unit Tests
  *
  * Contains definitions of all the test functions
  */
@@ -74,7 +74,7 @@ void ShowTestsResults(int nFailed)
             printf("There's no such directory. Check if everything is correct\n");
             break;
         default:
-            printf("%d cases failed in total\n", nFailed);
+            printf("%d tests failed\n\n", nFailed);
             break;
     }
 }
@@ -86,7 +86,7 @@ void ShowTestsResults(int nFailed)
  * @return the whether teo variables are equal or not
  */
 
-bool Equals(double correctAns, double realAns)
+bool areEqual(double correctAns, double realAns)
 {
     if (isnan(correctAns)) {
         if (isnan(realAns)) {
@@ -107,18 +107,18 @@ bool Equals(double correctAns, double realAns)
 int UnitTest(FILE* testFile, int testN)
 {
     printf("Running test #%d\n", testN);
-    /// Coefficients
+    // Coefficients
     double a = NAN, b = NAN, c = NAN;
     if (getCoeffs(testFile, &a, &b, &c) != 3) {
         printf("Scan faield");
         return TEST_FAILED;
     }
 
-    /// Real answers
+    // Real answers
     double x1 = NAN, x2 = NAN; ///x1 and x2 get their values from Solve Quadratic
     int rootsN = SolveQuadratic(a, b, c, &x1, &x2);
 
-    /// Reference args
+    // Reference args
     double x1_ref = NAN, x2_ref = NAN;
     int rootsN_ref = 0;
     getRefArgs(testFile, &rootsN_ref, &x1_ref, &x2_ref);
@@ -156,10 +156,10 @@ int getCoeffs(FILE* file, double* a, double* b, double* c)
 
 void getRefArgs(FILE* file, int* rootsN, double* x1, double* x2)
 {
-    /// Get roots number
+    // Get roots number
     fscanf(file, "%d", rootsN);
 
-    /// Get roots
+    // Get roots
     if (*rootsN == 0 or *rootsN == INF_ROOTS) {
         *x1 = NAN;
         *x2 = NAN;
@@ -187,6 +187,6 @@ void getRefArgs(FILE* file, int* rootsN, double* x1, double* x2)
 bool CorrectAnswer(int nRoots, double root1, double root2,
                    int nRoots_ref, double root1_ref, double root2_ref)
 {
-    return (nRoots_ref == nRoots and Equals(root1, root1_ref) and Equals(root2, root2_ref)) or
-           (nRoots_ref == nRoots and Equals(root1, root2_ref) and Equals(root2, root1_ref));
+    return (nRoots_ref == nRoots and areEqual(root1, root1_ref) and areEqual(root2, root2_ref)) or
+           (nRoots_ref == nRoots and areEqual(root1, root2_ref) and areEqual(root2, root1_ref));
 }

@@ -25,6 +25,7 @@ extern const double PRECISION;
 
 int SolveQuadratic(double a_coeff, double b_coeff, double c_coeff, double* root_1, double* root_2);
 int SolveLinear(double b_coeff, double c_coeff, double* root);
+
 void ShowRoots(int num_of_roots, double root_1, double root_2);
 int ScanCoefficients(double* a_coeff_pointer, double* b_coeff_pointer, double* c_coeff_pointer);
 bool EqualsZero(double value);

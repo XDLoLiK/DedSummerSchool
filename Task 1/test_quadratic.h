@@ -10,23 +10,25 @@
 #define TEST_TEST_QUADRATIC_H
 
 #include <stdio.h>
-#include <time.h>
 
 /// A group of possible test conditions
 enum TestStatus {
     SCAN_FAIL         = -2, ///< If the program failed to scan the file
     NOT_EXISTING_FILE = -1, ///< If the file doesn't exist
-    TEST_FAILED       =  0,
-    TEST_PASSED       =  1
+    TEST_FAILED       =  0, ///< If test is failed
+    TEST_PASSED       =  1  ///< If test has succeeded
 };
 
 int QuadraticUnitTests();
-int ScanFilePath(char* path);
-bool Equals(double correctAns, double realAns);
 void ShowTestsResults(int nFailed);
 int UnitTest(FILE* testFile,int testN);
+
+int ScanFilePath(char* path);
+bool areEqual(double correctAns, double realAns);
+
 void getRefArgs(FILE* file, int* rootsN, double* x1, double* x2);
 int getCoeffs(FILE* file, double* a, double* b, double* c);
+
 bool CorrectAnswer(int nRoots, double root1, double root2,
                    int nRoots_ref, double root1_ref, double root2_ref);
 

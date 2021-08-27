@@ -11,7 +11,7 @@
 #include "quadratic.h"
 
 const int ROOTS_NUM_ERROR = 228;
-const double PRECISION = 1e-9;
+const double PRECISION = 1e-5;
 
 /**
  * Solves a quadratic equations ax^2 + bx + c = 0

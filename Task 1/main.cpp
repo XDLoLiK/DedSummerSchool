@@ -2,18 +2,11 @@
  * @author Stas Goryainov
  * @version 1.0
  * @date 27/08/2021
- * @bug Testing isn't working
  */
 
 #include "quadratic.h"
+#include "random_tests.h"
 #include "test_quadratic.h"
-
-/**
- * The main function of the program
- * @param[in] argc number of arguments the main function gets (1 at least)
- * @param argv array of arguments pointers
- * @return 0
- */
 
 #define TESTING
 #ifdef TESTING
@@ -21,10 +14,21 @@
 int main(int argc, char* argv[])
 {
     ShowTestsResults(QuadraticUnitTests());
+
+    int failedTests = RandomQuadraticTests();
+    printf("%d tests failed\n", failedTests);
+
     return 0;
 }
 
-#else // TESTING
+#else
+
+/**
+ * The main function of the program
+ * @param[in] argc number of arguments the main function gets (1 at least)
+ * @param argv array of arguments pointers
+ * @return 0
+ */
 
 int main(int argc, char* argv[])
 {
@@ -45,10 +49,11 @@ int main(int argc, char* argv[])
 
     return 0;
 }
-#endif // TESTING
+
+#endif // FILE_TESTING
 
 // DONE assert
 // рандом юнит тесты
 // DONE разбор cmd / условная компиляция
-// доки для юнит тестов + !
+// DONE доки для юнит тестов + !
 // #define IS_OK(expr) ((expr) == 0)
