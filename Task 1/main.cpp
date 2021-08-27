@@ -51,9 +51,3 @@ int main(int argc, char* argv[])
 }
 
 #endif // FILE_TESTING
-
-// DONE assert
-// рандом юнит тесты
-// DONE разбор cmd / условная компиляция
-// DONE доки для юнит тестов + !
-// #define IS_OK(expr) ((expr) == 0)
