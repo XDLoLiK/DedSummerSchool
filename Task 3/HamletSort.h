@@ -1,7 +1,3 @@
-//
-// Created by Stas on 29.08.2021.
-//gc
-
 #ifndef HAMLET_HAMLETSORT_H
 #define HAMLET_HAMLETSORT_H
 

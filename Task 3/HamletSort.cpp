@@ -1,7 +1,3 @@
-//
-// Created by Stas on 29.08.2021.
-//
-
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -29,7 +25,7 @@ void writeHamlet(char* filePath, char** textHamlet, int nStrings)
     FILE* outputHamlet = fopen(filePath, "w");
 
     for (int string = 0; string < nStrings; ++string) {
-        fputs(textHamlet[string], outputHamlet);
+        fprintf(outputHamlet, "%s", textHamlet[string]);
     }
 
     free(textHamlet);
@@ -38,11 +34,13 @@ void writeHamlet(char* filePath, char** textHamlet, int nStrings)
 
 void swapStrings(char* firstString, char* secondString, int maxString)
 {
-    char tempStr[maxString] = {};
+    if (maxString) {
+        char tempStr[maxString] = {};
 
-    strcpy(tempStr, firstString);
-    strcpy(firstString, secondString);
-    strcpy(secondString, tempStr);
+        strcpy(tempStr, firstString);
+        strcpy(firstString, secondString);
+        strcpy(secondString, tempStr);
+    }
 }
 
 int countStrings(char* filePath)
@@ -72,6 +70,7 @@ int findMaxString(char* filePath)
 
     while ((currentSymbol = fgetc(fileHamlet)) != EOF) {
         if (currentSymbol == '\n') {
+            ++curString;
             maxString = (curString > maxString) ? curString : maxString;
             curString = 0;
         }

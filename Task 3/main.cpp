@@ -17,10 +17,5 @@ int main() {
     scanf("%s", filePath);
     writeHamlet(filePath, textHamlet, nStrings);
 
-//    FILE* file = fopen(filePath, "w");
-//    fputs("Hello, World!", file);
-//    fclose(file);
-
-    printf("%s", textHamlet[1002]);
     return 0;
 }
