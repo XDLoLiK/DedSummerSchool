@@ -1,3 +1,10 @@
+/**
+ * @file HamletSort.h
+ *
+ * A header file for HamletSort.cpp
+ * (file/text sorting library)
+ */
+
 #ifndef HAMLET_HAMLETSORT_H
 #define HAMLET_HAMLETSORT_H
 
